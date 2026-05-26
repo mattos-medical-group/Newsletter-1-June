@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MMG Boletín Semanal — Edición No. 01</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Lato',sans-serif;background:#eceae4;padding:2rem 1rem;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+
+/* ── BRAND TOKENS ── */
+:root{
+  --navy:#0b1e3d;
+  --blue:#2678c0;
+  --blue-light:#4a94d6;
+  --cream:#f8f5ef;
+  --off-white:#f2efe8;
+  --border:#d8d4ca;
+  --text:#1a2a40;
+  --muted:#5a6a80;
+  --gold:#c9a84c;
+  --grad-hero:linear-gradient(135deg,#0b1e3d 0%,#1a3a6b 100%);
+  --grad-cta:linear-gradient(135deg,#2678c0 0%,#1a5a9e 100%);
+  --shadow-sm:0 2px 8px rgba(11,30,61,0.08);
+  --shadow-md:0 6px 24px rgba(11,30,61,0.12);
+  --shadow-blue:0 4px 16px rgba(38,120,192,0.30);
+  --ease-out:cubic-bezier(0.22,1,0.36,1);
+}
+
+/* ── WRAPPER ── */
+.nl-wrap,.blog-wrap{max-width:640px;margin:0 auto;background:var(--cream);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-md);}
+
+/* ── HEADER ── */
+.nl-header{background:var(--grad-hero);padding:2.25rem 2rem 1.75rem;text-align:center;position:relative;overflow:hidden;}
+.nl-header::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(38,120,192,0.18),transparent 70%);border-radius:50%;pointer-events:none;}
+.nl-header::after{content:'';position:absolute;bottom:-60px;left:-60px;width:240px;height:240px;background:radial-gradient(circle,rgba(74,148,214,0.12),transparent 70%);border-radius:50%;pointer-events:none;}
+.nl-header > *{position:relative;z-index:2;}
+.nl-eyebrow{font-size:10px;letter-spacing:3px;font-weight:700;text-transform:uppercase;color:var(--blue-light);margin-bottom:10px;}
+.nl-logo{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:#fff;letter-spacing:.5px;line-height:1.1;margin-bottom:4px;}
+.nl-tagline{font-size:10px;letter-spacing:3.5px;font-weight:700;text-transform:uppercase;color:rgba(255,255,255,0.45);}
+.nl-issue-bar{display:flex;justify-content:center;gap:2rem;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.10);}
+.nl-issue-pill{font-size:11px;color:rgba(255,255,255,0.45);letter-spacing:.5px;}
+.nl-issue-pill strong{color:var(--blue-light);font-weight:600;}
+
+/* ── SECTION LABEL (eyebrow) ── */
+.sec-lbl{font-size:10px;letter-spacing:2.5px;font-weight:700;text-transform:uppercase;color:var(--blue);margin-bottom:.65rem;}
+
+/* ── WELCOME ── */
+.nl-welcome{padding:1.75rem 2rem;border-bottom:1px solid var(--border);background:var(--cream);}
+.nl-welcome-text{font-family:'Playfair Display',serif;font-size:16px;line-height:1.85;color:var(--navy);font-style:italic;}
+.nl-sig{font-size:12.5px;color:var(--blue);margin-top:.75rem;font-weight:600;letter-spacing:.3px;}
+
+/* ── HEALTH TIP ── */
+.nl-tip{padding:1.75rem 2rem;background:var(--off-white);border-bottom:1px solid var(--border);}
+.nl-tip-hed{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:.5rem;}
+.nl-tip-body{font-size:13.5px;line-height:1.75;color:var(--muted);}
+.nl-tip-cta{display:inline-flex;align-items:center;gap:5px;margin-top:.85rem;font-size:11.5px;font-weight:700;color:var(--blue);letter-spacing:1px;text-transform:uppercase;border-bottom:1.5px solid var(--blue-light);padding-bottom:2px;}
+
+/* ── PROMO ── */
+.nl-promo{padding:1.75rem 2rem;border-bottom:1px solid var(--border);background:var(--cream);}
+.nl-promo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:.6rem;}
+.nl-promo-card{background:var(--grad-hero);border-radius:12px;padding:1.5rem 1.25rem;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-blue);}
+.nl-promo-card::before{content:'';position:absolute;top:-40px;right:-40px;width:140px;height:140px;background:radial-gradient(circle,rgba(74,148,214,0.18),transparent 70%);border-radius:50%;}
+.nl-promo-card > *{position:relative;z-index:1;}
+.nl-promo-for{font-size:9.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue-light);font-weight:700;margin-bottom:6px;}
+.nl-promo-amt{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:#fff;line-height:1;margin-bottom:4px;}
+.nl-promo-svc{font-size:11px;color:rgba(255,255,255,0.55);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;}
+.nl-promo-badge{display:inline-block;background:var(--grad-cta);color:#fff;font-size:10px;font-weight:700;padding:4px 14px;border-radius:20px;letter-spacing:.5px;box-shadow:var(--shadow-blue);}
+.nl-promo-fine{font-size:11px;color:var(--muted);margin-top:.85rem;font-style:italic;text-align:center;}
+
+/* ── TWO-COL SERVICES ── */
+.nl-two-col{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border);background:var(--cream);}
+.nl-svc{padding:1.5rem;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:8px;}
+.nl-svc:last-child{border-right:none;}
+.nl-svc-dot{width:6px;height:32px;background:var(--blue);border-radius:3px;margin-bottom:2px;}
+.nl-svc-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);line-height:1.2;}
+.nl-svc-body{font-size:13px;line-height:1.65;color:var(--muted);flex:1;}
+.nl-svc-tag{display:inline-block;margin-top:4px;font-size:10px;padding:3px 10px;border-radius:20px;background:var(--off-white);border:1px solid var(--border);color:var(--blue);font-weight:700;letter-spacing:.5px;text-transform:uppercase;align-self:flex-start;}
+
+/* ── TESTIMONIAL ── */
+.nl-tst{padding:1.75rem 2rem;border-bottom:1px solid var(--border);background:var(--off-white);}
+.nl-tst-quote{font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:var(--text);line-height:1.75;}
+.nl-tst-quote::before{content:'\201C';font-size:44px;color:var(--blue);line-height:0;vertical-align:-14px;margin-right:5px;}
+.nl-tst-author{margin-top:12px;font-size:12.5px;font-weight:700;color:var(--navy);letter-spacing:.3px;}
+.nl-tst-stars{color:var(--gold);letter-spacing:2px;font-size:13px;margin-top:4px;}
+
+/* ── FOLLOW / SOCIAL ── */
+.nl-follow{padding:1.75rem 2rem;border-bottom:1px solid var(--border);background:var(--cream);}
+.nl-follow-text{font-size:13.5px;line-height:1.7;color:var(--muted);margin-bottom:1rem;}
+.nl-social-row{display:flex;gap:8px;flex-wrap:wrap;}
+.nl-social-btn{display:inline-flex;align-items:center;gap:7px;background:var(--navy);border-radius:50px;padding:8px 18px;font-size:12px;font-weight:700;color:#fff;letter-spacing:.5px;transition:transform .2s var(--ease-out);}
+
+/* ── LOYALTY ── */
+.nl-loyalty{padding:1.75rem 2rem;background:var(--grad-hero);position:relative;overflow:hidden;}
+.nl-loyalty::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(74,148,214,0.14),transparent 70%);border-radius:50%;}
+.nl-loyalty > *{position:relative;z-index:1;}
+.nl-loyalty-lbl{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue-light);font-weight:700;margin-bottom:.5rem;}
+.nl-loyalty-hed{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#fff;margin-bottom:.5rem;}
+.nl-loyalty-body{font-size:13px;line-height:1.65;color:rgba(255,255,255,0.6);margin-bottom:1rem;}
+.nl-loyalty-tiers{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.nl-tier{background:rgba(255,255,255,0.07);border-radius:10px;padding:12px 14px;border:1px solid rgba(255,255,255,0.10);}
+.nl-tier-name{font-size:10.5px;font-weight:700;color:var(--blue-light);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+.nl-tier-desc{font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;}
+
+/* ── FOOTER ── */
+.nl-footer{padding:.9rem 2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);background:var(--cream);}
+.nl-footer-brand{font-size:11.5px;color:var(--muted);}
+.nl-footer-links{display:flex;gap:1.25rem;}
+.nl-footer-links a{font-size:11.5px;color:var(--blue);font-weight:600;}
+
+/* ── PAGE DIVIDER ── */
+.pg-div{margin:2rem auto;max-width:640px;display:flex;align-items:center;gap:1rem;}
+.pg-div-line{flex:1;height:1px;background:var(--border);}
+.pg-div-lbl{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);white-space:nowrap;font-weight:700;}
+
+/* ── BLOG ── */
+.blog-hero{background:var(--grad-hero);padding:2.5rem 2rem 2rem;position:relative;overflow:hidden;}
+.blog-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:280px;height:280px;background:radial-gradient(circle,rgba(38,120,192,0.16),transparent 70%);border-radius:50%;}
+.blog-hero > *{position:relative;z-index:1;}
+.blog-cat{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue-light);font-weight:700;margin-bottom:.75rem;}
+.blog-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:#fff;line-height:1.3;margin-bottom:.75rem;}
+.blog-sub{font-size:13.5px;color:rgba(255,255,255,0.6);line-height:1.65;}
+.blog-meta{display:flex;gap:1.5rem;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.10);}
+.blog-meta-item{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:.3px;}
+.blog-meta-item strong{color:var(--blue-light);font-weight:600;}
+.blog-body{padding:2rem;}
+.blog-intro{font-family:'Playfair Display',serif;font-size:16px;line-height:1.85;color:var(--navy);font-style:italic;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
+.blog-h2{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--navy);line-height:1.2;margin:1.5rem 0 .6rem;}
+.blog-p{font-size:13.5px;line-height:1.8;color:var(--muted);margin-bottom:1rem;}
+.blog-callout{background:var(--off-white);border-left:3px solid var(--blue);border-radius:0 10px 10px 0;padding:1rem 1.25rem;margin:1.25rem 0;}
+.blog-callout-title{font-size:10px;font-weight:700;color:var(--navy);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
+.blog-callout-text{font-size:13px;color:var(--muted);line-height:1.7;}
+.blog-sym-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:1rem 0;}
+.blog-sym{background:var(--off-white);border:1px solid var(--border);border-left:2px solid var(--blue-light);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:10px;}
+.blog-sym-icon{font-size:18px;flex-shrink:0;}
+.blog-sym-text{font-size:12.5px;color:var(--text);line-height:1.4;}
+.blog-promo{background:var(--grad-hero);margin:1.5rem 0;border-radius:12px;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;box-shadow:var(--shadow-blue);}
+.blog-promo-hed{font-family:'Playfair Display',serif;font-size:15px;color:#fff;margin-bottom:4px;font-weight:700;}
+.blog-promo-sub{font-size:12px;color:rgba(255,255,255,0.55);}
+.blog-promo-btn{background:var(--grad-cta);color:#fff;font-size:12px;font-weight:700;padding:9px 20px;border-radius:50px;white-space:nowrap;letter-spacing:.5px;box-shadow:var(--shadow-blue);flex-shrink:0;}
+.blog-footer{padding:.9rem 2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);background:var(--cream);}
+.blog-footer-brand{font-size:11.5px;color:var(--muted);}
+.blog-footer-links a{font-size:11.5px;color:var(--blue);font-weight:600;margin-left:1.25rem;}
+</style>
+</head>
+<body>
+
+<!-- ══ PAGE 1: NEWSLETTER ══ -->
+<div class="nl-wrap">
+
+  <div class="nl-header">
+    <div class="nl-eyebrow">Boletín semanal</div>
+    <div class="nl-logo">Mattos Medical Group</div>
+    <div class="nl-tagline">Medicina Regenerativa · Tampa, FL</div>
+    <div class="nl-issue-bar">
+      <span class="nl-issue-pill"><strong>Semana del</strong> 26 de mayo, 2026</span>
+      <span class="nl-issue-pill"><strong>Edición</strong> No. 01</span>
+    </div>
+  </div>
+
+  <div class="nl-welcome">
+    <div class="sec-lbl">Bienvenidos</div>
+    <div class="nl-welcome-text">"Cada semana, le traemos lo mejor de nuestra clínica — consejos de salud, tratamientos destacados y noticias de nuestra comunidad. Porque cuidarse es el mejor regalo que se puede dar."</div>
+    <div class="nl-sig">— El equipo de Mattos Medical Group</div>
+  </div>
+
+  <div class="nl-tip">
+    <div class="sec-lbl">Consejo de salud de la semana</div>
+    <div class="nl-tip-hed">¿Se siente diferente con la edad? Puede ser sus hormonas.</div>
+    <div class="nl-tip-body">El desequilibrio hormonal no es solo "parte del envejecimiento." La fatiga, el aumento de peso, los cambios de humor y la falta de energía tienen causas reales — y soluciones reales. La Terapia de Reemplazo Hormonal Bioidéntica (BHRT) puede devolver su calidad de vida.</div>
+    <span class="nl-tip-cta">Ver artículo completo abajo →</span>
+  </div>
+
+  <div class="nl-promo">
+    <div class="sec-lbl">Promoción del mes</div>
+    <div class="nl-promo-grid">
+      <div class="nl-promo-card">
+        <div class="nl-promo-for">Para hombres</div>
+        <div class="nl-promo-amt">$1,000</div>
+        <div class="nl-promo-svc">de descuento · BHRT</div>
+        <span class="nl-promo-badge">Solo este mes</span>
+      </div>
+      <div class="nl-promo-card">
+        <div class="nl-promo-for">Para mujeres</div>
+        <div class="nl-promo-amt">$800</div>
+        <div class="nl-promo-svc">de descuento · BHRT</div>
+        <span class="nl-promo-badge">Solo este mes</span>
+      </div>
+    </div>
+    <div class="nl-promo-fine">Llame o escriba hoy para reservar su consulta. Oferta válida durante junio 2026.</div>
+  </div>
+
+  <div class="nl-two-col">
+    <div class="nl-svc">
+      <div class="nl-svc-dot"></div>
+      <div class="sec-lbl">Tratamiento destacado</div>
+      <div class="nl-svc-name">Terapia con Células Madre</div>
+      <div class="nl-svc-body">Regenere tejidos y reduzca la inflamación con una de las terapias más avanzadas disponibles hoy.</div>
+      <span class="nl-svc-tag">Disponible ahora</span>
+    </div>
+    <div class="nl-svc">
+      <div class="nl-svc-dot"></div>
+      <div class="sec-lbl">También recomendamos</div>
+      <div class="nl-svc-name">Terapia IV con Vitaminas</div>
+      <div class="nl-svc-body">Nutrición directa al torrente sanguíneo para energía, inmunidad y bienestar general.</div>
+      <span class="nl-svc-tag">Muy popular</span>
+    </div>
+  </div>
+
+  <div class="nl-tst">
+    <div class="sec-lbl">Voz de nuestra comunidad</div>
+    <div class="nl-tst-quote">Después de empezar el BHRT me sentí como yo misma otra vez. Más energía, mejor humor, mejor sueño. El equipo de Mattos me explicó todo con paciencia y cuidado.</div>
+    <div class="nl-tst-author">— Rosa M., paciente desde 2024</div>
+    <div class="nl-tst-stars">★★★★★</div>
+  </div>
+
+  <div class="nl-follow">
+    <div class="sec-lbl">Próximas actividades</div>
+    <div class="nl-follow-text">¡Síguenos en nuestras redes sociales para estar al tanto de dónde nos encontrará próximamente — eventos, jornadas de salud y mucho más!</div>
+    <div class="nl-social-row">
+      <a class="nl-social-btn" href="https://www.facebook.com/mattosmedicalgroup" target="_blank">📘 Facebook</a>
+      <a class="nl-social-btn" href="https://www.instagram.com/mattosmedical" target="_blank">📷 Instagram</a>
+      <a class="nl-social-btn" href="https://wa.me/18138712950" target="_blank">💬 WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="nl-loyalty">
+    <div class="nl-loyalty-lbl">Programa de Lealtad MMG</div>
+    <div class="nl-loyalty-hed">Sus visitas tienen recompensa</div>
+    <div class="nl-loyalty-body">Por cada $2 que invierta en su salud, gana 1 estrella. Acumule y disfrute beneficios exclusivos — ¡usted se lo merece!</div>
+    <div class="nl-loyalty-tiers">
+      <div class="nl-tier">
+        <div class="nl-tier-name">⭐ Gold — 1,250 estrellas</div>
+        <div class="nl-tier-desc">Descuentos automáticos y acceso a ofertas especiales</div>
+      </div>
+      <div class="nl-tier">
+        <div class="nl-tier-name">✦ Platinum — 5,000 estrellas</div>
+        <div class="nl-tier-desc">Beneficios premium y atención prioritaria</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nl-footer">
+    <div class="nl-footer-brand">© 2026 Mattos Medical Group · Tampa, FL · 813.871.2950</div>
+    <div class="nl-footer-links">
+      <a href="tel:+18138712950">Llamar</a>
+      <a href="#">Darse de baja</a>
+    </div>
+  </div>
+
+</div><!-- /.nl-wrap -->
+
+<!-- ══ PAGE DIVIDER ══ -->
+<div class="pg-div">
+  <div class="pg-div-line"></div>
+  <div class="pg-div-lbl">Página 2 — Artículo del mes</div>
+  <div class="pg-div-line"></div>
+</div>
+
+<!-- ══ PAGE 2: BLOG ══ -->
+<div class="blog-wrap">
+
+  <div class="blog-hero">
+    <div class="blog-cat">Salud hormonal · Artículo del mes</div>
+    <div class="blog-title">BHRT: La Terapia Hormonal Bioidéntica que Está Cambiando la Vida de Nuestros Pacientes</div>
+    <div class="blog-sub">Si siente que su cuerpo ya no responde como antes, no está solo. El desequilibrio hormonal afecta a millones — y tiene solución.</div>
+    <div class="blog-meta">
+      <span class="blog-meta-item"><strong>Mattos Medical Group</strong></span>
+      <span class="blog-meta-item">Mayo 2026</span>
+      <span class="blog-meta-item">Lectura: 4 minutos</span>
+    </div>
+  </div>
+
+  <div class="blog-body">
+    <div class="blog-intro">Imagine despertar con energía, sentirse enfocado, tener buen humor y dormir bien por la noche. Para muchos de nuestros pacientes, esto parecía imposible — hasta que descubrieron la Terapia de Reemplazo Hormonal Bioidéntica.</div>
+
+    <div class="blog-h2">¿Qué es el BHRT?</div>
+    <div class="blog-p">La Terapia de Reemplazo Hormonal Bioidéntica (BHRT) utiliza hormonas que son químicamente idénticas a las que su propio cuerpo produce. A diferencia de las hormonas sintéticas tradicionales, las hormonas bioidénticas están diseñadas para trabajar en armonía con su biología — no en contra de ella.</div>
+    <div class="blog-p">En Mattos Medical Group, evaluamos sus niveles hormonales con análisis de laboratorio completos y creamos un plan personalizado para restaurar su equilibrio de forma segura y efectiva.</div>
+
+    <div class="blog-callout">
+      <div class="blog-callout-title">¿Lo sabía?</div>
+      <div class="blog-callout-text">Las hormonas bioidénticas se derivan de fuentes naturales como la soya y el ñame. Su estructura molecular es idéntica a la de las hormonas humanas, lo que permite una absorción más natural y efectiva.</div>
+    </div>
+
+    <div class="blog-h2">Señales de que puede necesitar BHRT</div>
+    <div class="blog-p">El desequilibrio hormonal no siempre es obvio. Muchos pacientes lo confunden con el estrés o simplemente con "hacerse mayor." Esté atento a estas señales:</div>
+
+    <div class="blog-sym-grid">
+      <div class="blog-sym"><span class="blog-sym-icon">🌙</span><div class="blog-sym-text">Dificultad para dormir o insomnio</div></div>
+      <div class="blog-sym"><span class="blog-sym-icon">⚡</span><div class="blog-sym-text">Fatiga constante o falta de energía</div></div>
+      <div class="blog-sym"><span class="blog-sym-icon">😔</span><div class="blog-sym-text">Cambios de humor, ansiedad o depresión</div></div>
+      <div class="blog-sym"><span class="blog-sym-icon">⚖️</span><div class="blog-sym-text">Aumento de peso sin causa clara</div></div>
+      <div class="blog-sym"><span class="blog-sym-icon">🧠</span><div class="blog-sym-text">Dificultad de concentración o "niebla mental"</div></div>
+      <div class="blog-sym"><span class="blog-sym-icon">❤️</span><div class="blog-sym-text">Disminución del deseo sexual</div></div>
+    </div>
+
+    <div class="blog-h2">BHRT para hombres</div>
+    <div class="blog-p">La testosterona baja no es solo un problema de la edad avanzada. A partir de los 30 años, los hombres pueden experimentar una disminución gradual que afecta su masa muscular, su energía, su concentración y su vida íntima. El BHRT masculino restaura los niveles de testosterona de forma segura, mejorando la composición corporal, el enfoque mental y el bienestar general.</div>
+
+    <div class="blog-h2">BHRT para mujeres</div>
+    <div class="blog-p">La perimenopausia y la menopausia pueden traer cambios profundos: sofocos, insomnio, irritabilidad, sequedad vaginal y más. El BHRT femenino reequilibra el estrógeno, la progesterona y la testosterona — aliviando síntomas y restaurando la vitalidad. Muchas de nuestras pacientes reportan sentirse "como ellas mismas otra vez" en pocas semanas.</div>
+
+    <div class="blog-callout">
+      <div class="blog-callout-title">Nuestro proceso en 3 pasos</div>
+      <div class="blog-callout-text"><strong>1. Evaluación:</strong> Análisis completo de laboratorio para conocer sus niveles hormonales actuales.<br><br><strong>2. Plan personalizado:</strong> Nuestro médico diseña un protocolo específico para usted — sin soluciones genéricas.<br><br><strong>3. Seguimiento:</strong> Revisamos sus niveles periódicamente y ajustamos su plan según su respuesta.</div>
+    </div>
+
+    <div class="blog-h2">¿Es seguro el BHRT?</div>
+    <div class="blog-p">El BHRT tiene un sólido historial de seguridad cuando es prescrito y supervisado por profesionales médicos calificados. En Mattos Medical Group, cada paciente recibe una evaluación completa antes de iniciar cualquier terapia. La clave está en la personalización: su plan es único para usted.</div>
+
+    <div class="blog-promo">
+      <div>
+        <div class="blog-promo-hed">Oferta especial de junio — solo por este mes</div>
+        <div class="blog-promo-sub">Hombres: $1,000 off · Mujeres: $800 off en BHRT</div>
+      </div>
+      <a class="blog-promo-btn" href="tel:+18138712950">Reservar ahora</a>
+    </div>
+
+    <div class="blog-p" style="font-size:13px;margin-top:.25rem;">¿Tiene preguntas? Llámenos al <strong style="color:var(--navy)">813.871.2950</strong>, escríbanos por WhatsApp o visítenos en 8315 N. Saulray St., Tampa, FL. Nuestro equipo bilingüe está listo para ayudarle.</div>
+  </div>
+
+  <div class="blog-footer">
+    <div class="blog-footer-brand">© 2026 Mattos Medical Group · Tampa, FL</div>
+    <div class="blog-footer-links">
+      <a href="tel:+18138712950">813.871.2950</a>
+      <a href="#">Darse de baja</a>
+    </div>
+  </div>
+
+</div><!-- /.blog-wrap -->
+</body>
+</html>
